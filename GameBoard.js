@@ -1,6 +1,6 @@
 import { GRID_SIZE, CELL_SIZE, OBJECT_TYPE, CLASS_LIST } from "./setup.js";
 
-class gameBoard {
+class GameBoard {
     constructor(DOMGrid) {
         this.dotCount = 0;
         this.grid = [];
@@ -46,4 +46,12 @@ class gameBoard {
     rotateDiv(pos, deg) {
         this.grid[pos].style.transform = `rotate(${deg}deg)`;
     }
+
+    static createGameBoard(DOMGrid, level) {
+        const board = new this(DOMGrid);
+        board.createGrid(level);
+        return board;
+    }
 }
+
+export default GameBoard;
