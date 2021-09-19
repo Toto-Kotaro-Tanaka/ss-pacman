@@ -49,3 +49,5 @@ class Ghost {
         this.dir = direction;
     }
 }
+
+export default Ghost;
