@@ -22,7 +22,14 @@ let gameWin = false;
 let powerPillActive = false;
 let powerPillTimer = null;
 
+// Audio
+function playAudio(audio) {
+    const soundEffect = new Audio(audio);
+    soundEffect.play();
+}
+
 const gameOver = (pacman, grid) => {
+    playAudio("./sounds/death.wav");
     document.removeEventListener("keydown", (e) => {
         pacman.handleKeyInput(e, gameBoard.objectExist);
     });
@@ -37,6 +44,7 @@ const checkCollision = (pacman, ghosts) => {
 
     if (collidedGhost) {
         if (pacman.powerPill) {
+            playAudio("./sounds/eat_ghost.wav");
             gameBoard.removeObject(collidedGhost.pos, [
                 OBJECT_TYPE.GHOST,
                 OBJECT_TYPE.SCARED,
@@ -61,6 +69,7 @@ const gameLoop = (pacman, ghosts) => {
 
     // Check if Pacman eats a dot
     if (gameBoard.objectExist(pacman.pos, OBJECT_TYPE.DOT)) {
+        playAudio("./sounds/munch.wav");
         gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.DOT]);
         gameBoard.dotCount--;
         score += 10;
@@ -68,6 +77,7 @@ const gameLoop = (pacman, ghosts) => {
 
     // Check if Pacman eats powerpill
     if (gameBoard.objectExist(pacman.pos, OBJECT_TYPE.PILL)) {
+        playAudio("./sounds/pill.wav");
         gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PILL]);
 
         pacman.powerPill = true;
@@ -101,6 +111,7 @@ const startGame = () => {
     powerPillActive = false;
     score = 0;
 
+    playAudio("./sounds/game_start.wav");
     startButton.classList.add("hide");
 
     gameBoard.createGrid(LEVEL);
