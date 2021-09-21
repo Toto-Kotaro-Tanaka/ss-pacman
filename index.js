@@ -22,7 +22,15 @@ let gameWin = false;
 let powerPillActive = false;
 let powerPillTimer = null;
 
-const gameOver = (pacman, grid) => {};
+const gameOver = (pacman, grid) => {
+    document.removeEventListener("keydown", (e) => {
+        pacman.handleKeyInput(e, gameBoard.objectExist);
+    });
+
+    gameBoard.showGameStatus(gameWin);
+    clearInterval(timer);
+    startButton.classList.remove("hide");
+};
 
 const checkCollision = (pacman, ghosts) => {
     const collidedGhost = ghosts.find((ghost) => pacman.pos === ghost.pos);
@@ -38,7 +46,7 @@ const checkCollision = (pacman, ghosts) => {
             score += 100;
         } else {
             gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PACMAN]);
-            ganeBoard.rotateDiv(pacman.pos, 0);
+            gameBoard.rotateDiv(pacman.pos, 0);
             gameOver(pacman, gameGrid);
         }
     }
