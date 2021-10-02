@@ -1,4 +1,4 @@
-![image](https://github.com/Toto-Kotaro-Tanaka/ss-pacman/blob/main/pacman.jpg)
+![image](https://github.com/Toto-Kotaro-Tanaka/ss-pacman/blob/main/pacman.png)
 
 # Pacman
 
