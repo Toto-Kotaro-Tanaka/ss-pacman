@@ -1,6 +1,6 @@
 ![image](https://github.com/Toto-Kotaro-Tanaka/ss-pacman/blob/main/pacman.png)
 
-# Pacman
+# [Pacman](https://toto-kotaro-tanaka.github.io/ss-pacman/)
 
 ## Credit
 
