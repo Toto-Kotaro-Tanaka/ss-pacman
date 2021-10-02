@@ -4,17 +4,29 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <title>Pacman</title>
 </head>
 
 <body>
-    <div id="wrapper">
-        <div id="game"></div>
-        <div id="score"></div>
-        <button id="start-button">Start Game</button>
+    <div class="d-lg-none mobile--bg">
+        <h2 class="text-center mt-5 p-5 text-white">The game is available only on screen bigger than 992px</h2>
+        <img class="pacman--bg mx-auto d-block" src="./pacman-bg.jpg" alt="Pacman">
     </div>
+    <main class="d-none d-lg-block p-5">
+        <div id="wrapper">
+            <div id="game"></div>
+            <div id="score"></div>
+            <button id="start-button">Start Game</button>
+        </div>
+    </main>
     <script src="./index.js" type="module"></script>
 </body>
 
