@@ -39,6 +39,12 @@ const gameOver = (pacman, grid) => {
     startButton.classList.remove("hide");
 };
 
+const gameFinish = (pacman, grid) => {
+    document.removeEventListener("keydown", (e) => {
+        pacman.handleKeyInput(e, gameBoard.objectExist);
+    });
+};
+
 const checkCollision = (pacman, ghosts) => {
     const collidedGhost = ghosts.find((ghost) => pacman.pos === ghost.pos);
 
@@ -99,7 +105,7 @@ const gameLoop = (pacman, ghosts) => {
     // Check if all dots have been eaten
     if (gameBoard.dotCount === 0) {
         gameWin = true;
-        gameOver(pacman, ghosts);
+        gameFinish(pacman, gameGrid);
     }
 
     // Show the score
