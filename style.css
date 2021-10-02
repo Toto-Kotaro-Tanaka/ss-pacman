@@ -90,7 +90,7 @@ body {
 }
 
 .ghost::before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     width: 3px;
@@ -103,7 +103,7 @@ body {
 }
 
 .ghost::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     width: 3px;
